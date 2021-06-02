@@ -25,12 +25,10 @@ export const App = () => {
 		<RMap
 			initial={view}
 			view={[view, setView]}
-			noDefaultControls={true}
 			className="map">
 			<ROSM />
 
 			<RLayerVector
-				onChange={e => console.log(e)}
 				zIndex={10}
 			>
 				{
@@ -47,7 +45,7 @@ export const App = () => {
 		</RMap>
 		<div>
 			{
-				features.map(feature => <div>
+				features.map(feature => <div key={feature.id}>
 					{feature.id}
 					<button onClick={() => setFeatures(features.filter(f => f !== feature))}>Remove</button>
 				</div>)
@@ -69,12 +67,10 @@ export const App = () => {
 		<RMap
 			initial={view}
 			view={[view, setView]}
-			noDefaultControls={true}
 			className="map">
 			<ROSM />
 
 			<RLayerVector
-				onChange={e => console.log(e)}
 				zIndex={10}
 			>
 				{
@@ -84,7 +80,7 @@ export const App = () => {
 		</RMap>
 		<div>
 			{
-				features2.map(feature => <div>
+				features2.map(feature => <div key={feature.id}>
 					{feature.id}
 					<button onClick={() => setFeatures2(features2.filter(f => f !== feature))}>Remove</button>
 				</div>)
